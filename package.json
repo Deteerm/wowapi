@@ -1,0 +1,27 @@
+{
+  "name": "wowapi",
+  "version": "1.0.0",
+  "description": "Simple API to help decide which one of your WoW characters you want to play",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "tobecreated"
+  },
+  "keywords": [
+    "WorldOfWarcraft",
+    "WoW",
+    "API",
+    "Node",
+    "Node.js"
+  ],
+  "author": "Dominik 'Determ' Tarkiewicz",
+  "license": "ISC"
+}
