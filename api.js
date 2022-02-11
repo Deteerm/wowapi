@@ -5,8 +5,7 @@ module.exports = {
     getChampion
 }
 
-async function listChampions(req, res) {
-    res.setHeader('Access-Control-Allow-Origin', '*')
+async function listChampions(req, res, next) {
     const  {offset = 0, limit = 10, faction} = req.query
     try {
         res.json(await Champions.list({
@@ -15,12 +14,11 @@ async function listChampions(req, res) {
             faction: faction
         }))
     } catch(err) {
-        res.status(500).json({"error": err.message})
+        next(err)
     }
 }
 
 async function getChampion(req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', '*')
     const {name} = req.params
 
     try {
@@ -29,6 +27,6 @@ async function getChampion(req, res, next) {
 
         res.json(champion)
     } catch(err) {
-        res.status(500).json({"error": err.message})
+        next(err)
     }
 }
