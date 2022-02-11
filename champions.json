@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Dhraterm",
+    "race": "Void Elf",
+    "class": "Mage",
+    "sex": "male",
+    "lv": 57
+  },
+  {
+    "name": "Determ",
+    "race": "Night Elf",
+    "class": "Druid",
+    "sex": "male",
+    "lv": 52
+  },
+  {
+    "name": "Detehrm",
+    "race": "Dwarf",
+    "class": "Warrior",
+    "sex": "male",
+    "lv": 6
+  },
+  {
+    "name": "Galthran",
+    "race": "Human",
+    "class": "Rogue",
+    "sex": "male",
+    "lv": 55
+  }
+]
