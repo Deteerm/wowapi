@@ -4,6 +4,9 @@ const autoCatch = require("./lib/auto-catch");
 module.exports = autoCatch({
   getChampion,
   listChampions,
+  createChampion,
+  editChampion,
+  deleteChampion,
 });
 
 async function listChampions(req, res, next) {
@@ -24,4 +27,17 @@ async function getChampion(req, res, next) {
   if (!champion) next();
 
   res.json(champion);
+}
+
+async function createChampion(req, res, next) {
+  console.log("request body:", req.body);
+  res.json(req.body);
+}
+
+async function editChampion(req, res, next) {
+  res.json(req.body);
+}
+
+async function deleteChampion(req, res, next) {
+  res.json({ success: true });
 }
