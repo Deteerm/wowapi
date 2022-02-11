@@ -4,27 +4,39 @@
     "race": "Void Elf",
     "class": "Mage",
     "sex": "male",
-    "lv": 57
+    "lv": 57,
+    "faction": "Alliance"
   },
   {
     "name": "Determ",
     "race": "Night Elf",
     "class": "Druid",
     "sex": "male",
-    "lv": 52
+    "lv": 52,
+    "faction": "Alliance"
   },
   {
     "name": "Detehrm",
     "race": "Dwarf",
     "class": "Warrior",
     "sex": "male",
-    "lv": 6
+    "lv": 6,
+    "faction": "Alliance"
   },
   {
     "name": "Galthran",
     "race": "Human",
     "class": "Rogue",
     "sex": "male",
-    "lv": 55
+    "lv": 55,
+    "faction": "Alliance"
+  },
+  {
+    "name": "Dreterm",
+    "race": "Orc",
+    "class": "Shaman",
+    "sex": "male",
+    "lv": 22,
+    "faction": "Horde"
   }
 ]
