@@ -10,6 +10,7 @@ const port = process.env.PORT || 1337;
 const app = express();
 
 app.use(middleware.cors);
+app.use(bodyParser.json());
 app.get("/", function (req, res) {
   res.json("Welcome!");
 });
