@@ -15,10 +15,13 @@ app.get("/", function (req, res) {
   res.json("Welcome!");
 });
 app.get("/champions", api.listChampions);
-app.get("/champions/:name", api.getChampion);
+app.get("/champions/:id", api.getChampion);
 app.post("/champions", api.createChampion);
-app.put("champions/:name", api.editChampion);
-app.delete("champions/:name", api.deleteChampion);
+app.put("/champions/:id", api.editChampion);
+app.delete("/champions/:id", api.deleteChampion);
+
+app.get("/orders", api.listSessions);
+app.post("/orders", api.createSession);
 
 app.use(middleware.handleError);
 app.use(middleware.notFound);
