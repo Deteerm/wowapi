@@ -55,7 +55,7 @@ async function createSession(req, res, next) {
 }
 
 async function listSessions(req, res, next) {
-  const { offset = 0, limit = 25, productId, status } = req.query;
+  const { offset = 0, limit = 10, productId, status } = req.query;
 
   const sessions = await Sessions.list({
     offset: Number(offset),

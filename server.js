@@ -1,8 +1,10 @@
 require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 
 const api = require("./api");
+const auth = require("./auth");
 const middleware = require("./middleware");
 
 const port = process.env.PORT || 1337;
@@ -11,19 +13,30 @@ const app = express();
 
 app.use(middleware.cors);
 app.use(bodyParser.json());
-app.get("/", function (req, res) {
+app.use(cookieParser());
+
+app.get("/", (req, res) => {
   res.json("Welcome!");
 });
+app.post("/login", auth.authenticate, auth.login);
+
 app.get("/champions", api.listChampions);
 app.get("/champions/:id", api.getChampion);
-app.post("/champions", api.createChampion);
-app.put("/champions/:id", api.editChampion);
-app.delete("/champions/:id", api.deleteChampion);
+app.post("/champions", auth.ensureAdmin, api.createChampion);
+app.put("/champions/:id", auth.ensureAdmin, api.editChampion);
+app.delete("/champions/:id", auth.ensureAdmin, api.deleteChampion);
 
-app.get("/orders", api.listSessions);
-app.post("/orders", api.createSession);
+app.get("/sessions", auth.ensureAdmin, api.listSessions);
+app.post("/sessions", auth.ensureAdmin, api.createSession);
 
+app.use(middleware.handleValidationError);
 app.use(middleware.handleError);
 app.use(middleware.notFound);
 
-app.listen(port, () => console.log(`Server listening on port: ${port}`));
+const server = app.listen(port, () =>
+  console.log(`Server listening on port: ${port}`)
+);
+
+if (require.main !== module) {
+  module.exports = server;
+}
