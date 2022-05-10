@@ -4,6 +4,7 @@
   "description": "Simple API to help decide which one of your WoW characters you want to play",
   "main": "server.js",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.19.1",
     "cookie-parser": "^1.4.6",
     "cuid": "^2.1.8",
@@ -12,7 +13,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.3.2",
     "passport": "^0.5.2",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "validator": "^13.7.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

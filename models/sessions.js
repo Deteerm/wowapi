@@ -4,6 +4,7 @@ const db = require("../db");
 
 const Session = db.model("Session", {
   _id: { type: String, default: cuid },
+  username: { type: String, required: true, index: true },
   champions: [{ type: String, ref: "Champion", index: true, required: true }],
   status: {
     type: String,
@@ -23,9 +24,10 @@ module.exports = {
 };
 
 async function list(opts = {}) {
-  const { offset = 0, limit = 10, sessionId, status } = opts;
+  const { offset = 0, limit = 10, username, sessionId, status } = opts;
 
   const query = {};
+  if (username) query.username = username;
   if (sessionId) query.champions = sessionId;
   if (status) query.status = status;
 

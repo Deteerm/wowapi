@@ -19,15 +19,16 @@ app.get("/", (req, res) => {
   res.json("Welcome!");
 });
 app.post("/login", auth.authenticate, auth.login);
+app.post("/register", api.createUser);
 
 app.get("/champions", api.listChampions);
 app.get("/champions/:id", api.getChampion);
-app.post("/champions", auth.ensureAdmin, api.createChampion);
-app.put("/champions/:id", auth.ensureAdmin, api.editChampion);
-app.delete("/champions/:id", auth.ensureAdmin, api.deleteChampion);
+app.post("/champions", auth.ensureUser, api.createChampion);
+app.put("/champions/:id", auth.ensureUser, api.editChampion);
+app.delete("/champions/:id", auth.ensureUser, api.deleteChampion);
 
-app.get("/sessions", auth.ensureAdmin, api.listSessions);
-app.post("/sessions", auth.ensureAdmin, api.createSession);
+app.get("/sessions", auth.ensureUser, api.listSessions);
+app.post("/sessions", auth.ensureUser, api.createSession);
 
 app.use(middleware.handleValidationError);
 app.use(middleware.handleError);
