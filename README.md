@@ -1,2 +1,3 @@
 # wowapi
-Simple Node application to help decide which one of your wow characters to play
+
+Simple World of Warcraft flavoured Node API inspired by the book "Fullstack Node" by David Guttman
